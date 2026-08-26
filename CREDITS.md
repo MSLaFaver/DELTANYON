@@ -268,10 +268,6 @@
 ### Chapter 1
 - [20. Thrash Machine](https://youtu.be/NfLLaFkjFEM)
 
-## [hewwo :33](https://www.youtube.com/@NicoleLovesCuteFurries) (1)
-### Chapter 3
-- [13. Board Clear!](https://youtu.be/gTw-SrWNZzg)
-
 ## [Hydragyrum Beholder](https://www.youtube.com/@hydragyrumbeholder) (1)
 ### Chapter 1
 - [5. The Door](https://youtu.be/B5wBrf3iGYg)
@@ -347,7 +343,7 @@
 ### Chapter 5
 - [33. Running Sky](https://youtu.be/k3sHSjXWY3I)
 
-## [Luis F. Studio](https://www.youtube.com/@LuisFStudio) (2)
+## [Luis F.](https://www.youtube.com/@LuisFStudio) (2)
 ### Chapter 2
 - [15. Smart Race](https://youtu.be/V8aAuBST4Bo)
 - [25. Bluebird of Misfortune](https://youtu.be/Fvz3SvA0AYE)
@@ -396,6 +392,10 @@
 ## [nickflynt](https://www.youtube.com/@nickflyntyt) (1)
 ### Chapter 1
 - [15. Lantern](https://youtu.be/cBL2hC8zUgE)
+
+## [Nicole <3](https://www.youtube.com/@NicoleLovesCuteFurries) (1)
+### Chapter 3
+- [13. Board Clear!](https://youtu.be/gTw-SrWNZzg)
 
 ## [NovaRendo](https://www.youtube.com/@NovaRendoOfficial) (1)
 ### Chapter 4
@@ -487,7 +487,7 @@
 ### Chapter 2
 - [28. Acid Tunnel of Love](https://youtu.be/1zmD_1QDEbQ)
 
-## [The Exiled Fellow](https://www.youtube.com/@theexiiedfeiiow4748) (1)
+## [The ExiIed FeIIow](https://www.youtube.com/@theexiiedfeiiow4748) (1)
 ### Chapter 4
 - [40. Hymn](https://youtu.be/pu2ds-1KzRg)
 
