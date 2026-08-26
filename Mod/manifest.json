@@ -1,0 +1,48 @@
+{
+	"name": "DELTANYON",
+	"namespace": "MSLaFaver",
+	"version_number": "1.0.0",
+	"description": "ueueleuleuleuleue",
+
+	"deploy": {
+		"nyon.json": [0],
+		"nyons": [0]
+	},
+
+	"data": {
+		"code": {
+			"override": {
+				"gml_GlobalScript_mus_play.gml": [1, 2, 3, 4, 5],
+				"gml_GlobalScript_mus_loop.gml": [1, 2, 3, 4, 5],
+				"gml_GlobalScript_snd_init.gml": [1, 2, 3, 4, 5],
+				"gml_GlobalScript_snd_play.gml": [1, 2, 3, 4, 5],
+				"gml_GlobalScript_snd_loop.gml": [1, 2, 3, 4, 5],
+				"gml_GlobalScript_scr_get_bromide_data.gml": [5],
+				"gml_Object_obj_ch3_couch_video_Create_0.gml": [3],
+				"gml_Object_obj_ch3_couch_video_Draw_0.gml": [3]
+			},
+			"prefix": {
+				"gml_Object_obj_darkfountain_event_Draw_0.gml": [1, 2, 4, 5],
+				"gml_Object_obj_ch5_DW45_darkfountain_event_Draw_0.gml": {
+					"from": "gml_Object_obj_darkfountain_event_Draw_0.gml",
+					"chapters": [5]
+				}
+			},
+			"postfix": {
+				"gml_Object_obj_time_Create_0.gml": [1, 2, 3, 4, 5],
+				"gml_Object_obj_time_Draw_64.gml": [1, 2, 3, 4, 5],
+				"gml_Object_obj_time_Step_1.gml": [1, 2, 3, 4, 5],
+				"gml_Object_obj_sweet_enemy_Create_0.gml": [2]
+			}
+		},
+		"sounds": {
+			"cyber_battle_backing_solo.wav": [2],
+			"snd_flowery_bromide_f.wav": [5],
+			"snd_flowery_bromide_r.wav": [5],
+			"snd_nes_intro.wav": [3],
+			"snd_nes_intro_extended.wav": [3],
+			"snd_nes_intro_extended_part2.wav": [3],
+			"snd_usefountain.ogg": [1, 2, 4, 5]
+		}
+	}
+}
