@@ -460,7 +460,7 @@
 - [19. Sunset of Seven Suns](https://youtu.be/cTLA0HOhjTI)
 - [36. Dreamwatchers](https://youtu.be/reWfZ_gb6ec)
 
-## [SpikoPlayz](https://www.youtube.com/@spikøplayzgamez) (1)
+## [SpikøPlayz](https://www.youtube.com/@spikøplayzgamez) (1)
 ### Chapter 4
 - [48. ATRIUM](https://youtu.be/Dpi02KUpHHE)
 
