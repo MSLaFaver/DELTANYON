@@ -35,28 +35,28 @@ global.nyon_root_dir = global.launcher ? working_directory + "../" : working_dir
 var nyon_path = global.nyon_root_dir + "nyon.json";
 if (file_exists(nyon_path))
 {
-    var nyon_file = file_text_open_read(nyon_path);
-    var nyon_text = "";
-    while (!file_text_eof(nyon_file))
-    {
-        nyon_text += file_text_read_string(nyon_file);
-        file_text_readln(nyon_file);
-    }
-    file_text_close(nyon_file);
-    try
-    {
-        var _decoded = json_decode(nyon_text);
-        if (ds_exists(_decoded, ds_type_map))
-        {
-            global.nyon_json = _decoded;
-            var _list = ds_map_find_value(_decoded, "default");
-            if (ds_exists(_list, ds_type_list))
-            {
-                global.nyon_data = _list;
-            }
-        }
-    }
-    catch (_err)
-    {
-    }
+	var nyon_file = file_text_open_read(nyon_path);
+	var nyon_text = "";
+	while (!file_text_eof(nyon_file))
+	{
+		nyon_text += file_text_read_string(nyon_file);
+		file_text_readln(nyon_file);
+	}
+	file_text_close(nyon_file);
+	try
+	{
+		var _decoded = json_decode(nyon_text);
+		if (ds_exists(_decoded, ds_type_map))
+		{
+			global.nyon_json = _decoded;
+			var _list = ds_map_find_value(_decoded, "default");
+			if (ds_exists(_list, ds_type_list))
+			{
+				global.nyon_data = _list;
+			}
+		}
+	}
+	catch (_err)
+	{
+	}
 }
