@@ -70,3 +70,4 @@ if (scr_is_switch_os())
     target_duration = 1224;
 }
 video_position = 0;
+nyon_toast("tennaIntroF1_compressed_28.mp4");
