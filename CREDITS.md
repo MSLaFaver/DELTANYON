@@ -8,7 +8,7 @@
 ### Chapter 3
 - [30. Black Knife](https://youtu.be/OjAPJpz7mVs)
 
-## [Aбит \[МАК\]](https://www.youtube.com/@ABITDANTON) (1)
+## [Aбит \[ABITDANTON\]](https://www.youtube.com/@ABITDANTON) (1)
 ### Chapter 4
 - [72. Neverending Night](https://youtu.be/vkWk9fQ5WXM)
 
