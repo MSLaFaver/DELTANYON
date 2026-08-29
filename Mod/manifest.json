@@ -33,7 +33,8 @@
 				"gml_Object_obj_time_Create_0.gml": [ 1, 2, 3, 4, 5 ],
 				"gml_Object_obj_time_Draw_64.gml": [ 1, 2, 3, 4, 5 ],
 				"gml_Object_obj_time_Step_1.gml": [ 1, 2, 3, 4, 5 ],
-				"gml_Object_obj_sweet_enemy_Create_0.gml": [ 2 ]
+				"gml_Object_obj_sweet_enemy_Create_0.gml": [ 2 ],
+				"gml_Object_obj_kawkaw_enemy_Step_0.gml": [ 5 ]
 			}
 		},
 		"sounds": {

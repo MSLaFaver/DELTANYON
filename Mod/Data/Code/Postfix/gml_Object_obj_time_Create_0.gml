@@ -32,6 +32,7 @@ global.nyon_toasted = [];
 global.nyon_json = -1;
 global.nyon_data = -1;
 global.nyon_root_dir = global.launcher ? working_directory + "../" : working_directory;
+global.irredeemable_monster = false;
 var nyon_path = global.nyon_root_dir + "nyon.json";
 if (file_exists(nyon_path))
 {

@@ -1,5 +1,11 @@
 function snd_play(arg0, arg1 = 1, arg2 = 1)
 {
+	if (global.irredeemable_monster && arg0 == snd_hurt1)
+	{
+		global.irredeemable_monster = false;
+		arg0 = snd_ominous_stab_harsh_2;
+	}
+
 	var _snd = audio_play_sound(arg0, 50, 0);
 
 	if (global.chapter == 3 && (arg0 == snd_nes_intro || arg0 == snd_nes_intro_extended))
