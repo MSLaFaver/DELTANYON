@@ -1,5 +1,9 @@
-function Get-DataSection($data, [string]$name) {
-	if (!$data) { return $null }
-	if ($data.PSObject.Properties.Name -contains $name) { return $data.$name }
-	return $null
+function Get-DataSection($data, [string]$name)
+{
+	$result = $null
+	if ($data -and $data.PSObject.Properties.Name -contains $name)
+	{
+		$result = $data.$name
+	}
+	$result
 }

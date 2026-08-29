@@ -1,12 +1,9 @@
-function Write-Settings {
-	param(
-		[hashtable]$Settings,
-		[string]$SettingsPath,
-		[string]$Root
-	)
+function Write-Settings
+{
+	param([hashtable]$Settings, [string]$SettingsPath)
 
-	if (!$Settings -or !$Settings.Count) { return }
-
-	[pscustomobject]$Settings | ConvertTo-Json | Set-Content -LiteralPath $SettingsPath -Encoding UTF8
-	Remove-Item (Join-Path $Root 'umt.json'), (Join-Path $Root 'install.json') -ErrorAction SilentlyContinue
+	if ($Settings -and $Settings.Count)
+	{
+		[pscustomobject]$Settings | ConvertTo-Json | Set-Content -LiteralPath $SettingsPath -Encoding UTF8
+	}
 }

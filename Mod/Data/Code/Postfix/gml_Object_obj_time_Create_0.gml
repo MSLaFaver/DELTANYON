@@ -15,7 +15,6 @@ global.toast_clip_surface = -1;
 global.toast_clip_w = 0;
 global.toast_clip_h = 0;
 global.toast_font = fnt_main;
-global.toast_nyonmaker_font = fnt_mainbig;
 global.toast_box_width_ratio = 0.25;
 global.toast_box_height_ratio = 0.1;
 global.toast_padding_ratio = 0.1;
@@ -29,7 +28,6 @@ global.toast_scroll_hold_seconds = 2;
 global.toast_scroll_pixels_per_second = 50;
 global.toast_hidden_pad = 2;
 global.nyon_toasted = [];
-global.nyon_json = -1;
 global.nyon_data = -1;
 global.nyon_root_dir = global.launcher ? working_directory + "../" : working_directory;
 global.irredeemable_monster = false;
@@ -49,7 +47,6 @@ if (file_exists(nyon_path))
 		var _decoded = json_decode(nyon_text);
 		if (ds_exists(_decoded, ds_type_map))
 		{
-			global.nyon_json = _decoded;
 			var _list = ds_map_find_value(_decoded, "default");
 			if (ds_exists(_list, ds_type_list))
 			{

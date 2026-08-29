@@ -1,5 +1,10 @@
-function Ask([string]$prompt) {
+function Ask([string]$prompt)
+{
 	$r = Read-Host "$prompt [Y/n]"
-	if (!$r) { return $true }
-	$r -match '^[Yy]'
+	$result = $true
+	if ($r)
+	{
+		$result = $r -match '^[Yy]'
+	}
+	$result
 }
