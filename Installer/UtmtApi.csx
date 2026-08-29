@@ -7,23 +7,18 @@ using UndertaleModLib.Util;
 
 EnsureDataLoaded();
 
-string overrides = "";
-string prefixes = "";
-string postfixes = "";
-string sounds = "";
-string listDir = Environment.GetEnvironmentVariable("DRML_LIST_DIR");
-
-if (!string.IsNullOrWhiteSpace(listDir))
+string ReadList(string dir, string file)
 {
-	string overPath = Path.Combine(listDir, "override.txt");
-	string prefixPath = Path.Combine(listDir, "prefix.txt");
-	string postPath = Path.Combine(listDir, "postfix.txt");
-	string soundsPath = Path.Combine(listDir, "sounds.txt");
-	if (File.Exists(overPath)) overrides = File.ReadAllText(overPath);
-	if (File.Exists(prefixPath)) prefixes = File.ReadAllText(prefixPath);
-	if (File.Exists(postPath)) postfixes = File.ReadAllText(postPath);
-	if (File.Exists(soundsPath)) sounds = File.ReadAllText(soundsPath);
+	if (string.IsNullOrWhiteSpace(dir)) return "";
+	string path = Path.Combine(dir, file);
+	return File.Exists(path) ? File.ReadAllText(path) : "";
 }
+
+string listDir = Environment.GetEnvironmentVariable("DRML_LIST_DIR");
+string overrides = ReadList(listDir, "override.txt");
+string prefixes = ReadList(listDir, "prefix.txt");
+string postfixes = ReadList(listDir, "postfix.txt");
+string sounds = ReadList(listDir, "sounds.txt");
 
 if (string.IsNullOrWhiteSpace(overrides) && string.IsNullOrWhiteSpace(prefixes) && string.IsNullOrWhiteSpace(postfixes) && string.IsNullOrWhiteSpace(sounds))
 	throw new ScriptException("No patch file list provided (DRML_LIST_DIR).");
@@ -34,6 +29,7 @@ string soundsRoot = Path.Combine(modRoot, "Data", "Sounds");
 string gameDir = Environment.GetEnvironmentVariable("DRML_GAME_DIR");
 if (string.IsNullOrWhiteSpace(gameDir))
 	gameDir = Path.GetDirectoryName(FilePath);
+
 var group = new CodeImportGroup(Data);
 int applied = 0;
 int codePatches = 0;
@@ -50,20 +46,9 @@ foreach (var job in new[] {
 	{
 		if (string.IsNullOrWhiteSpace(entry)) continue;
 
-		string targetName;
-		string sourceFile;
 		int aliasAt = entry.IndexOf('@');
-		if (aliasAt >= 0)
-		{
-			targetName = Path.GetFileNameWithoutExtension(entry[..aliasAt]);
-			sourceFile = entry[(aliasAt + 1)..];
-		}
-		else
-		{
-			sourceFile = entry;
-			targetName = Path.GetFileNameWithoutExtension(entry);
-		}
-
+		string sourceFile = aliasAt >= 0 ? entry[(aliasAt + 1)..] : entry;
+		string targetName = Path.GetFileNameWithoutExtension(aliasAt >= 0 ? entry[..aliasAt] : entry);
 		string path = Path.Combine(job.Item2, sourceFile);
 		if (!File.Exists(path)) throw new ScriptException($"Patch file not found: {path}");
 
@@ -76,17 +61,10 @@ foreach (var job in new[] {
 
 		switch (job.Item3)
 		{
-			case "replace":
-				group.QueueReplace(code, gml);
-				break;
-			case "prepend":
-				group.QueuePrepend(code, gml);
-				break;
-			case "append":
-				group.QueueAppend(code, gml);
-				break;
-			default:
-				throw new ScriptException($"Unknown patch mode: {job.Item3}");
+			case "replace": group.QueueReplace(code, gml); break;
+			case "prepend": group.QueuePrepend(code, gml); break;
+			case "append": group.QueueAppend(code, gml); break;
+			default: throw new ScriptException($"Unknown patch mode: {job.Item3}");
 		}
 
 		applied++;
@@ -97,109 +75,169 @@ foreach (var job in new[] {
 foreach (string soundEntry in sounds.Split(';'))
 {
 	if (string.IsNullOrWhiteSpace(soundEntry)) continue;
-
-	string soundFileName = soundEntry.Trim();
-	string assetName = Path.GetFileNameWithoutExtension(soundFileName);
-	string soundPath = Path.Combine(soundsRoot, soundFileName);
-
-	if (!File.Exists(soundPath))
-	{
-		soundPath = null;
-		foreach (string ext in new[] { ".ogg", ".wav", ".OGG", ".WAV" })
-		{
-			string candidate = Path.Combine(soundsRoot, assetName + ext);
-			if (File.Exists(candidate))
-			{
-				soundPath = candidate;
-				break;
-			}
-		}
-	}
-
-	if (soundPath is null)
-		throw new ScriptException($"Sound file not found for \"{soundFileName}\" in {soundsRoot}");
-
-	ReplaceExistingSound(soundPath, assetName);
+	string soundPath = ResolveSoundPath(soundsRoot, soundEntry.Trim());
+	PatchSound(soundPath, Path.GetFileNameWithoutExtension(soundPath));
 	applied++;
 }
 
 if (applied == 0) throw new ScriptException("No patch entries matched this chapter.");
-
 if (codePatches > 0)
 {
 	var result = group.Import();
 	if (!result.Successful) throw new ScriptException(result.PrintAllErrors(true));
 }
 
-void ReplaceExistingSound(string soundPath, string soundName)
+UndertaleString Str(string value) => Data.Strings.MakeString(value);
+int BuiltinGroup() => Data.GetBuiltinSoundGroupID();
+void Mark(UndertaleSound sound) => Project?.MarkAssetForExport(sound);
+
+string ResolveSoundPath(string root, string soundFileName)
 {
-	UndertaleSound existingSound = null;
-	for (int i = 0; i < Data.Sounds.Count; i++)
+	string direct = Path.Combine(root, soundFileName);
+	if (File.Exists(direct)) return direct;
+
+	string assetName = Path.GetFileNameWithoutExtension(soundFileName);
+	foreach (string ext in new[] { ".ogg", ".wav", ".OGG", ".WAV" })
 	{
-		if (Data.Sounds[i]?.Name?.Content == soundName)
+		string candidate = Path.Combine(root, assetName + ext);
+		if (File.Exists(candidate)) return candidate;
+	}
+
+	throw new ScriptException($"Sound file not found for \"{soundFileName}\" in {root}");
+}
+
+UndertaleSound FindSound(string soundName)
+{
+	foreach (var sound in Data.Sounds)
+		if (sound?.Name?.Content == soundName)
+			return sound;
+	return null;
+}
+
+UndertaleSound FindSoundTemplate(string soundName)
+{
+	UndertaleSound best = null, embedded = null, any = null;
+	int bestPrefix = 0;
+	int builtin = BuiltinGroup();
+
+	foreach (var sound in Data.Sounds)
+	{
+		if (sound?.Name?.Content is not string name) continue;
+		any ??= sound;
+		if (sound.GroupID == builtin && sound.AudioFile is not null)
+			embedded ??= sound;
+
+		int prefix = 0;
+		int len = Math.Min(soundName.Length, name.Length);
+		while (prefix < len && soundName[prefix] == name[prefix])
+			prefix++;
+		if (prefix > bestPrefix)
 		{
-			existingSound = Data.Sounds[i];
-			break;
+			bestPrefix = prefix;
+			best = sound;
 		}
 	}
 
-	if (existingSound is null)
-		throw new ScriptException($"Sound asset not found in this chapter: {soundName}");
+	return (best != null && bestPrefix >= 4) ? best : embedded ?? any;
+}
 
-	byte[] newData = File.ReadAllBytes(soundPath);
-	string externalFile = existingSound.File?.Content;
-	bool isExternal = existingSound.AudioFile is null
-		&& existingSound.AudioID < 0
-		&& !string.IsNullOrWhiteSpace(externalFile);
+bool IsExternal(UndertaleSound sound) =>
+	sound.AudioFile is null && sound.AudioID < 0 && !string.IsNullOrWhiteSpace(sound.File?.Content);
 
-	if (isExternal)
+string GroupPath(int groupId)
+{
+	if (groupId < Data.AudioGroups.Count && Data.AudioGroups[groupId] is UndertaleAudioGroup { Path.Content: string path })
+		return Paths.JoinVerifyWithinDirectory(gameDir, path);
+	return Paths.JoinVerifyWithinDirectory(gameDir, $"audiogroup{groupId}.dat");
+}
+
+UndertaleSound CloneSound(UndertaleSound template, string soundName, string soundPath) => new()
+{
+	Name = Str(soundName),
+	Flags = template.Flags,
+	Type = Str(Path.GetExtension(soundPath).ToLowerInvariant()),
+	File = Str(Path.GetFileName(soundPath)),
+	Effects = template.Effects,
+	Volume = template.Volume,
+	Pitch = template.Pitch,
+	Preload = template.Preload,
+	AudioGroup = template.AudioGroup,
+	GroupID = template.GroupID,
+};
+
+void SetSoundAudio(UndertaleSound sound, byte[] data, bool create)
+{
+	if (IsExternal(sound))
 	{
-		string externalPath = Paths.JoinVerifyWithinDirectory(gameDir, externalFile);
-		File.WriteAllBytes(externalPath, newData);
-		Project?.MarkAssetForExport(existingSound);
+		File.WriteAllBytes(Paths.JoinVerifyWithinDirectory(gameDir, sound.File.Content), data);
+		Mark(sound);
 		return;
 	}
 
-	int audioGroupID = existingSound.GroupID;
-	int builtinGroupID = Data.GetBuiltinSoundGroupID();
-
-	if (audioGroupID == builtinGroupID)
+	if (sound.GroupID == BuiltinGroup())
 	{
-		if (existingSound.AudioFile is not null)
+		if (create)
 		{
-			existingSound.AudioFile.Data = newData;
+			var embedded = new UndertaleEmbeddedAudio { Name = Str(sound.Name.Content), Data = data };
+			Data.EmbeddedAudio.Add(embedded);
+			sound.AudioFile = embedded;
 		}
-		else if (existingSound.AudioID >= 0 && existingSound.AudioID < Data.EmbeddedAudio.Count)
-		{
-			Data.EmbeddedAudio[(int)existingSound.AudioID].Data = newData;
-		}
+		else if (sound.AudioFile is not null)
+			sound.AudioFile.Data = data;
+		else if (sound.AudioID >= 0 && sound.AudioID < Data.EmbeddedAudio.Count)
+			Data.EmbeddedAudio[(int)sound.AudioID].Data = data;
 		else
-		{
-			throw new ScriptException($"Sound \"{soundName}\" has no embedded audio to replace.");
-		}
+			throw new ScriptException($"Sound \"{sound.Name?.Content}\" has no embedded audio to replace.");
+
+		Mark(sound);
+		return;
+	}
+
+	string groupFile = GroupPath(sound.GroupID);
+	UndertaleData groupDat;
+	using (var read = File.OpenRead(groupFile))
+		groupDat = UndertaleIO.Read(read);
+
+	if (create)
+	{
+		groupDat.EmbeddedAudio.Add(new UndertaleEmbeddedAudio { Name = Str(sound.Name.Content), Data = data });
+		sound.AudioID = groupDat.EmbeddedAudio.Count - 1;
+		sound.AudioFile = null;
 	}
 	else
 	{
-		string relativeAudioGroupPath;
-		if (audioGroupID < Data.AudioGroups.Count && Data.AudioGroups[audioGroupID] is UndertaleAudioGroup { Path.Content: string customRelativePath })
-			relativeAudioGroupPath = customRelativePath;
-		else
-			relativeAudioGroupPath = $"audiogroup{audioGroupID}.dat";
-
-		string audioGroupPath = Paths.JoinVerifyWithinDirectory(gameDir, relativeAudioGroupPath);
-		UndertaleData audioGroupDat;
-		using (FileStream audioGroupReadStream = new(audioGroupPath, FileMode.Open, FileAccess.Read))
-			audioGroupDat = UndertaleIO.Read(audioGroupReadStream);
-
-		int audioID = (int)existingSound.AudioID;
-		if (audioID < 0 || audioID >= audioGroupDat.EmbeddedAudio.Count)
-			throw new ScriptException($"Sound \"{soundName}\" has invalid audio index {audioID} in group {audioGroupID}.");
-
-		audioGroupDat.EmbeddedAudio[audioID].Data = newData;
-
-		using FileStream audioGroupWriteStream = new(audioGroupPath, FileMode.Create);
-		UndertaleIO.Write(audioGroupWriteStream, audioGroupDat);
+		int audioId = (int)sound.AudioID;
+		if (audioId < 0 || audioId >= groupDat.EmbeddedAudio.Count)
+			throw new ScriptException($"Sound \"{sound.Name?.Content}\" has invalid audio index {audioId} in group {sound.GroupID}.");
+		groupDat.EmbeddedAudio[audioId].Data = data;
 	}
 
-	Project?.MarkAssetForExport(existingSound);
+	using (var write = File.Create(groupFile))
+		UndertaleIO.Write(write, groupDat);
+
+	Mark(sound);
+}
+
+void PatchSound(string soundPath, string soundName)
+{
+	byte[] data = File.ReadAllBytes(soundPath);
+	var existing = FindSound(soundName);
+	if (existing is not null)
+	{
+		SetSoundAudio(existing, data, create: false);
+		return;
+	}
+
+	var template = FindSoundTemplate(soundName)
+		?? throw new ScriptException($"Sound asset not found in this chapter and no template available to create it: {soundName}");
+
+	var sound = CloneSound(template, soundName, soundPath);
+	if (IsExternal(template))
+	{
+		sound.AudioFile = template.AudioFile;
+		sound.AudioID = template.AudioID;
+	}
+
+	Data.Sounds.Add(sound);
+	SetSoundAudio(sound, data, create: !IsExternal(template));
 }

@@ -8,17 +8,19 @@
 ### Chapter 3
 - [30. Black Knife](https://youtu.be/OjAPJpz7mVs)
 
-## [Aбит \[ABITDANTON\]](https://www.youtube.com/@ABITDANTON) (1)
+## [Aбит \[ABITDANTON\]](https://www.youtube.com/@ABITDANTON) (2)
 ### Chapter 4
 - [72. Neverending Night](https://youtu.be/vkWk9fQ5WXM)
+- [ch4_first_intro.ogg](https://youtu.be/vkWk9fQ5WXM)
 
 ## [Astral](https://www.youtube.com/@astrallninja) (1)
 ### Chapter 4
 - [59. 12am](https://youtu.be/CcBfihZ9CWQ)
 
-## [Atlas2007](https://www.youtube.com/@AtlasK2070) (2)
+## [Atlas2007](https://www.youtube.com/@AtlasK2070) (3)
 ### Chapter 4
 - [49. Dark Sanctuary](https://youtu.be/mW20Vqe-2iE)
+- [smallpiano_room.ogg](https://youtu.be/mW20Vqe-2iE)
 
 ### Chapter 5
 - [20. Shop 3](https://youtu.be/oRgYl17TKBg)
@@ -38,7 +40,7 @@
 ### Chapter 5
 - [8. I guess I'm in love](https://youtu.be/xBhKh6qDx8I)
 
-## [Billy The Hill](https://www.youtube.com/@BillyTheHilly) (38)
+## [Billy The Hill](https://www.youtube.com/@BillyTheHilly) (39)
 ### Chapter 1
 - [2. Beginning](https://youtu.be/dMssc0xnPvE)
 - [13. Field of Hopes and Dreams](https://youtu.be/vs9gy4uHFp0)
@@ -82,6 +84,7 @@
 - [55. Ever Higher](https://youtu.be/duYUsHET9hs)
 - [66. Crumbling Tower](https://youtu.be/NH9atHSPcgI)
 - [69. Need a hand!?](https://youtu.be/8rclhEHfNF8)
+- [78. Concert for you](https://youtu.be/1ZYgXZaqlr4)
 
 ### Chapter 5
 - [1. Chapter 5 Logo](https://youtu.be/EaYVZcQpIeA)
@@ -102,7 +105,7 @@
 - [ch5_inversion_lake_chant.ogg](https://youtu.be/_0BT953oFyg)
 - [dog_balloon.ogg](https://youtu.be/m38al1SrTj8)
 
-## [blu](https://www.youtube.com/@blu_mmdev) (6)
+## [blu](https://www.youtube.com/@blu_mmdev) (7)
 ### Chapter 2
 - [39. BIG SHOT](https://youtu.be/o4m9q0Nd1YM)
 
@@ -111,6 +114,7 @@
 - [20. Raise Up Your Bat](https://youtu.be/x4Lmfvd5XXA)
 - [24. Doom Board](https://youtu.be/R14JSi6fQgE)
 - [28. Hall of Fame](https://youtu.be/xmlWewq-2BY)
+- [baci_distort.ogg](https://youtu.be/nBSqCA5PiK4)
 
 ### Chapter 5
 - [11. Garden of Hopes and Dreams](https://youtu.be/CBUGGb3GZd8) (Collab)
@@ -143,7 +147,7 @@
 ### Chapter 3
 - [11. Ruder Buster](https://youtu.be/QeXWz7-7HQ8)
 
-## [DaniilDanDan](https://www.youtube.com/@danilkokoshyn) (6)
+## [DaniilDanDan](https://www.youtube.com/@danilkokoshyn) (9)
 ### Chapter 1
 - [22. Basement](https://youtu.be/dtKh0dTI8JI)
 
@@ -154,9 +158,12 @@
 - [46. The distance between two](https://youtu.be/sapY_DAQDME)
 - [56. Wise words](https://youtu.be/lg_9cQ5p1Ko)
 - [64. Dark Place](https://youtu.be/4c1EFoKZiGs)
+- [alt_church_lobby.ogg](https://youtu.be/4c1EFoKZiGs)
 
 ### Chapter 5
 - [22. Flower King](https://youtu.be/ptG9tXJ7hpc)
+- [asgore_serious_drum_only_low.ogg](https://youtu.be/ptG9tXJ7hpc)
+- [asgore_serious_drum_only_flowery_version.ogg](https://youtu.be/ptG9tXJ7hpc)
 
 ## [DrexShitposting](https://www.youtube.com/@DrexCrex29) (1)
 ### Chapter 1
@@ -284,15 +291,16 @@
 - [74. With Hope Crossed On Our Hearts](https://youtu.be/Ti7QHQ_gDs0)
 - [man_2.ogg](https://youtu.be/zoI-1LskBjc)
 
-## [Jeho Tau](https://www.youtube.com/@Jehoaddan) (1)
+## [Jeho Tau](https://www.youtube.com/@Jehoaddan) (2)
 ### Chapter 5
 - [31. Pink](https://youtu.be/w2OuwmqymQM)
+- [pink_theme_mad.ogg](https://youtu.be/w2OuwmqymQM)
 
 ## [kaedynkk](https://www.youtube.com/@kaedynkk) (1)
 ### Chapter 4
 - [53. A DARK ZONE](https://youtu.be/Faw-iryw0Kk)
 
-## [Kawii Dino Bonus](https://www.youtube.com/@KawiiDinoTwo) (5)
+## [Kawii Dino Bonus](https://www.youtube.com/@KawiiDinoTwo) (6)
 ### Chapter 3
 - [1. Flashback (Excerpt)](https://youtu.be/uFEO3iFXst4)
 - [2. Feature Presentation](https://youtu.be/uRhEgVXj5H8)
@@ -300,6 +308,7 @@
 ### Chapter 4
 - [67. SPAWN](https://youtu.be/7FLXsk9Cje0)
 - [71. The Ol' Jitterbug](https://youtu.be/TetksyrUFvc)
+- [jitterbug_muffled.ogg](https://youtu.be/TetksyrUFvc)
 - [tinnitus.ogg](https://youtu.be/rO-mji0TktU)
 
 ## [KawKawGuy](https://www.youtube.com/@kawkawguy) (3)
@@ -406,9 +415,12 @@
 - [34. Flower Man](https://youtu.be/KFDw8DCYixc)
 - [39. Field of Hopes and Dreams (Credits Version)](https://youtu.be/ZqUgR51Uvio)
 
-## [PenumberedFella](https://www.youtube.com/@tehrealpenumber) (1)
+## [PenumberedFella](https://www.youtube.com/@tehrealpenumber) (2)
 ### Chapter 2
 - [23. NOW'S YOUR CHANCE TO BE A](https://youtu.be/OWdcNuJIaic)
+
+### Chapter 3
+- [board4_rhythm.ogg](https://youtu.be/OWdcNuJIaic)
 
 ## [pratto](https://www.youtube.com/@prattosplatto) (1)
 ### Chapter 3
@@ -432,7 +444,7 @@
 ### Chapter 5
 - [21. Violet Tactics](https://youtu.be/eAtEWILFsI4)
 
-## [Scientific Guy](https://www.youtube.com/@scientific_guy) (5)
+## [Scientific Guy](https://www.youtube.com/@scientific_guy) (6)
 ### Chapter 2
 - [37. Digital Roots](https://youtu.be/PKZSLGCYSyU)
 
@@ -440,6 +452,9 @@
 - [29. Breath](https://youtu.be/kyO3oS89VTc)
 - [37. ERAM](https://youtu.be/r7fCE-kQRaY)
 - [38. BURNING EYES](https://youtu.be/dYIboVmRhI0)
+
+### Chapter 4
+- [mus_knightthought.ogg](https://youtu.be/kyO3oS89VTc)
 
 ### Chapter 5
 - [29. Onsen](https://youtu.be/jz2BsKmEF2w)
@@ -542,9 +557,11 @@
 ### Chapter 5
 - [10. Your Dad's Best Friend](https://youtu.be/LvNXVhISU-s)
 
-## [WavePlasma](https://www.youtube.com/@waveplasma) (1)
+## [WavePlasma](https://www.youtube.com/@waveplasma) (3)
 ### Chapter 5
 - [32. Cutie Mew Mew Magic](https://youtu.be/3Lx38mM38mg)
+- [snd_pink_stretch_2_troubled.ogg](https://youtu.be/3Lx38mM38mg)
+- [snd_pink_stretch_2_fixed.ogg](https://youtu.be/3Lx38mM38mg)
 
 ## [Woast](https://www.youtube.com/@woast5818) (1)
 ### Chapter 5

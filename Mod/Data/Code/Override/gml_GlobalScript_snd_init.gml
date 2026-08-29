@@ -27,9 +27,16 @@ function nyon_find_entry(arg0)
 	while (i < _count)
 	{
 		var _entry = ds_list_find_value(global.nyon_data, i);
-		if (ds_exists(_entry, ds_type_map) && ds_map_exists(_entry, "filename") && ds_map_find_value(_entry, "filename") == arg0)
+		if (ds_exists(_entry, ds_type_map))
 		{
-			return _entry;
+			if (ds_map_exists(_entry, "filename") && ds_map_find_value(_entry, "filename") == arg0)
+			{
+				return _entry;
+			}
+			if (ds_map_exists(_entry, "alt") && ds_map_find_value(_entry, "alt") == arg0)
+			{
+				return _entry;
+			}
 		}
 		i++;
 	}
@@ -55,56 +62,43 @@ function nyon_songname_from_stream(arg0)
 function nyon_on_music_stream(arg0)
 {
 	var _songname = nyon_songname_from_stream(arg0);
-	if (_songname == undefined)
+	if (_songname != undefined)
 	{
-		return;
+		nyon_toast(_songname);
 	}
-	if (nyon_find_entry(_songname) == undefined)
-	{
-		return;
-	}
-	nyon_toast(_songname);
 }
 
 function nyon_toast(arg0)
 {
-	if (!is_array(global.nyon_toasted))
-	{
-		global.nyon_toasted = [];
-	}
-	if (nyon_toast_seen(arg0))
-	{
-		return;
-	}
-	global.nyon_toasted[array_length(global.nyon_toasted)] = arg0;
 	var _entry = nyon_find_entry(arg0);
 	if (_entry == undefined)
 	{
 		return;
 	}
-	var nyonmaker = "";
-	if (ds_map_exists(_entry, "nyonmaker"))
+	if (!is_array(global.nyon_toasted))
 	{
-		nyonmaker = string(ds_map_find_value(_entry, "nyonmaker"));
+		global.nyon_toasted = [];
 	}
-	var title = arg0;
+	var _toast_key = string(ds_map_find_value(_entry, "filename"));
+	if (nyon_toast_seen(_toast_key))
+	{
+		return;
+	}
+	global.nyon_toasted[array_length(global.nyon_toasted)] = _toast_key;
+	var nyonmaker = ds_map_exists(_entry, "nyonmaker") ? string(ds_map_find_value(_entry, "nyonmaker")) : "";
+	var title = _toast_key;
 	if (ds_map_exists(_entry, "title"))
 	{
-		var _title = ds_map_find_value(_entry, "title");
-		if (string_length(string(_title)) > 0)
+		var _title = string(ds_map_find_value(_entry, "title"));
+		if (string_length(_title) > 0)
 		{
-			title = string(_title);
+			title = _title;
 		}
-	}
-	var nyonmaker_color = c_white;
-	if (nyonmaker == "Atlas2007")
-	{
-		nyonmaker_color = c_yellow;
 	}
 	var _toast = ds_map_create();
 	ds_map_set(_toast, "nyonmaker", nyonmaker);
 	ds_map_set(_toast, "title", title);
-	ds_map_set(_toast, "nyonmaker_color", nyonmaker_color);
+	ds_map_set(_toast, "nyonmaker_color", nyonmaker == "Atlas2007" ? c_yellow : c_white);
 	ds_queue_enqueue(global.toast_queue, _toast);
 }
 
@@ -113,11 +107,7 @@ function snd_init(arg0)
 	var root_dir = global.nyon_root_dir;
 	if (!is_string(root_dir) || string_length(root_dir) == 0)
 	{
-		root_dir = working_directory;
-		if (global.launcher)
-		{
-			root_dir = working_directory + "../";
-		}
+		root_dir = working_directory + (global.launcher ? "../" : "");
 	}
 	var dir = global.launcher ? root_dir + "mus/" : "mus/";
 	if (nyon_find_entry(arg0) != undefined && file_exists(root_dir + "nyons/" + arg0))
@@ -129,12 +119,10 @@ function snd_init(arg0)
 	_astream = instance_create(0, 0, obj_astream);
 	_astream.mystream = _mystream;
 	_astream.songname = arg0;
-
 	if (arg0 == "cyber_battle_prelude.ogg")
 	{
 		nyon_toast(arg0);
 	}
-
 	return _mystream;
 }
 

@@ -1,7 +1,7 @@
 {
 	"name": "DELTANYON",
 	"namespace": "MSLaFaver",
-	"version_number": "1.0.0",
+	"version_number": "0.1.0",
 	"description": "ueueleuleuleuleue",
 
 	"deploy": {
@@ -17,9 +17,10 @@
 				"gml_GlobalScript_snd_init.gml": [ 1, 2, 3, 4, 5 ],
 				"gml_GlobalScript_snd_play.gml": [ 1, 2, 3, 4, 5 ],
 				"gml_GlobalScript_snd_loop.gml": [ 1, 2, 3, 4, 5 ],
-				"gml_GlobalScript_scr_get_bromide_data.gml": [ 5 ],
 				"gml_Object_obj_ch3_couch_video_Create_0.gml": [ 3 ],
-				"gml_Object_obj_ch3_couch_video_Draw_0.gml": [ 3 ]
+				"gml_Object_obj_ch3_couch_video_Draw_0.gml": [ 3 ],
+				"gml_GlobalScript_c_soundplay.gml": [4],
+				"gml_GlobalScript_scr_get_bromide_data.gml": [ 5 ]
 			},
 			"prefix": {
 				"gml_Object_obj_darkfountain_event_Draw_0.gml": [ 1, 2, 4, 5 ],
@@ -36,13 +37,19 @@
 			}
 		},
 		"sounds": {
+			"AUDIO_DRONE.wav": [ 0 ],
+			"ch4_select.wav": [ 0 ],
+			"AUDIO_INTRONOISE.ogg": [ 1, 2, 3, 4, 5 ],
+			"snd_usefountain.ogg": [ 1, 2, 4, 5 ],
 			"cyber_battle_backing_solo.wav": [ 2 ],
-			"snd_flowery_bromide_f.wav": [ 5 ],
-			"snd_flowery_bromide_r.wav": [ 5 ],
 			"snd_nes_intro.wav": [ 3 ],
 			"snd_nes_intro_extended.wav": [ 3 ],
 			"snd_nes_intro_extended_part2.wav": [ 3 ],
-			"snd_usefountain.ogg": [ 1, 2, 4, 5 ]
+			"snd_pianonyon.wav": [ 4 ],
+			"snd_pink_stretch_2_troubled.wav": [ 5 ],
+			"snd_pink_stretch_2_fixed.wav": [ 5 ],
+			"snd_flowery_bromide_f.wav": [ 5 ],
+			"snd_flowery_bromide_r.wav": [ 5 ]
 		}
 	}
 }

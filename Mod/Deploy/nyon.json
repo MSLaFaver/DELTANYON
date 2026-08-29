@@ -10,6 +10,10 @@
 		"title": "Acid Tunnel of Love"
 	},
 	{
+		"filename": "alt_church_lobby.ogg",
+		"nyonmaker": "DaniilDanDan"
+	},
+	{
 		"filename": "annoying_prophecy.ogg",
 		"nyonmaker": "blowingkawkaw"
 	},
@@ -27,6 +31,14 @@
 		"filename": "asgore_serious.ogg",
 		"nyonmaker": "DaniilDanDan",
 		"title": "Flower King"
+	},
+	{
+		"filename": "asgore_serious_drum_only_flowery_version.ogg",
+		"nyonmaker": "DaniilDanDan"
+	},
+	{
+		"filename": "asgore_serious_drum_only_low.ogg",
+		"nyonmaker": "DaniilDanDan"
 	},
 	{
 		"filename": "AUDIO_ANOTHERHIM.ogg",
@@ -56,6 +68,10 @@
 		"filename": "baci_perugina.ogg",
 		"nyonmaker": "blu",
 		"title": "And Now For Today's Sponsors...!"
+	},
+	{
+		"filename": "baci_distort.ogg",
+		"nyonmaker": "blu"
 	},
 	{
 		"filename": "basement.ogg",
@@ -106,6 +122,10 @@
 		"filename": "blue_flower.ogg",
 		"nyonmaker": "The Rambsphere",
 		"title": "Loving Steps"
+	},
+	{
+		"filename": "board4_rhythm.ogg",
+		"nyonmaker": "PenumberedFella"
 	},
 	{
 		"filename": "board_4.ogg",
@@ -240,6 +260,10 @@
 		"filename": "ch4_extra_boss.ogg",
 		"nyonmaker": "crimsondark_",
 		"title": "Hammer of Justice"
+	},
+	{
+		"filename": "ch4_first_intro.ogg",
+		"nyonmaker": "ABITDANTON"
 	},
 	{
 		"filename": "ch5_credits.ogg",
@@ -536,6 +560,10 @@
 		"title": "The Ol' Jitterbug"
 	},
 	{
+		"filename": "jitterbug_muffled.ogg",
+		"nyonmaker": "Kawii Dino Bonus"
+	},
+	{
 		"filename": "joker.ogg",
 		"nyonmaker": "KawKawGuy",
 		"title": "THE WORLD REVOLVING"
@@ -661,6 +689,10 @@
 		"title": "Beginning"
 	},
 	{
+		"filename": "mus_knightthought.ogg",
+		"nyonmaker": "Scientific Guy"
+	},
+	{
 		"filename": "mus_school.ogg",
 		"nyonmaker": "Frog Musics",
 		"title": "School"
@@ -760,6 +792,10 @@
 		"title": "Pink"
 	},
 	{
+		"filename": "pink_theme_mad.ogg",
+		"nyonmaker": "Jeho Tau"
+	},
+	{
 		"filename": "pirate_zone.ogg",
 		"nyonmaker": "Cake",
 		"title": "Pirate Dojo"
@@ -816,6 +852,7 @@
 	},
 	{
 		"filename": "rhythm_knockdown_combined.ogg",
+		"alt": "rhythm_knockdown_no_guit.ogg",
 		"nyonmaker": "ueleule",
 		"title": "Knock You Down!! (Rhythm Ver.)"
 	},
@@ -869,6 +906,10 @@
 		"nyonmaker": "GreenApple"
 	},
 	{
+		"filename": "smallpiano_room.ogg",
+		"nyonmaker": "Atlas2007"
+	},
+	{
 		"filename": "snd_flowery_bromide_f.ogg",
 		"nyonmaker": "ueleule",
 		"title": "Beautiful Bathtime"
@@ -877,6 +918,19 @@
 		"filename": "snd_flowery_bromide_r.ogg",
 		"nyonmaker": "ueleule",
 		"title": "Goodnight, Sweet Prince"
+	},
+	{
+		"filename": "snd_pianonoise.ogg",
+		"nyonmaker": "Billy The Hill",
+		"title": "Concert for you"
+	},
+	{
+		"filename": "snd_pink_stretch_2_fixed.ogg",
+		"nyonmaker": "WavePlasma"
+	},
+	{
+		"filename": "snd_pink_stretch_2_troubled.ogg",
+		"nyonmaker": "WavePlasma"
 	},
 	{
 		"filename": "snd_usefountain.ogg",

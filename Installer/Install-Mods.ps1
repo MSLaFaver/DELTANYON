@@ -25,6 +25,9 @@ foreach ($f in @(
 	. (Join-Path $FunctionDir $f)
 }
 
+$InstallerSettings = Read-Settings -SettingsPath $SettingsPath -Root $Root
+if (!$InstallerSettings) { $InstallerSettings = @{} }
+
 function End([int]$code) {
 	Write-Host ''
 	if ($code) { Write-Host 'Installation failed.' }
@@ -41,23 +44,22 @@ function Pick([string]$title, [string]$filter) {
 }
 
 function Set-Setting([string]$key, [string]$value) {
-	$s = Read-Settings
-	if (!$s) { $s = [pscustomobject]@{} }
-	$s | Add-Member -NotePropertyName $key -NotePropertyValue $value -Force
-	Write-Settings $s
+	$script:InstallerSettings[$key] = $value
+	Write-Settings -Settings $script:InstallerSettings -SettingsPath $SettingsPath -Root $Root
 }
 
 function Get-Saved([string]$key, [string]$leaf, [string]$label) {
-	$settings = Read-Settings
-	$path = Resolve-Exe $settings.$key $leaf
+	$path = Resolve-Exe $script:InstallerSettings[$key] $leaf
 	if ($path) {
 		if ($y -or (Ask "Use saved $label? ($path)")) {
 			Write-Host "$label (saved): $path"
+			Set-Setting $key $path
 			return $path
 		}
-	} elseif ($settings) {
-		Write-Host "Saved $label path is missing; searching again..."
-		Remove-Item -LiteralPath $SettingsPath -Force -ErrorAction SilentlyContinue
+	} elseif ($script:InstallerSettings.ContainsKey($key)) {
+		Write-Host "Saved $label path was missing."
+		$script:InstallerSettings.Remove($key) | Out-Null
+		Write-Settings -Settings $script:InstallerSettings -SettingsPath $SettingsPath -Root $Root
 	}
 }
 
@@ -73,7 +75,7 @@ function Resolve-Program {
 	if ($Discover) {
 		$path = & $Discover
 		if ($path) {
-			if (!$AskDiscover -or (Ask "Use default $Label? ($path)")) {
+			if (!$AskDiscover -or $y -or (Ask "Use default $Label? ($path)")) {
 				Set-Setting $Key $path
 				Write-Host "$DisplayName ($DiscoverTag): $path"
 				return $path
@@ -177,6 +179,9 @@ try {
 		-InvalidMsg 'That folder does not contain UndertaleModCli.exe: {0}' `
 		-Discover { Resolve-Exe (Get-Command 'UndertaleModCli.exe' -ErrorAction SilentlyContinue).Source 'UndertaleModCli.exe' } `
 		-DiscoverTag 'PATH'
+
+	Set-Setting 'DeltaruneExe' $game
+	Set-Setting 'UndertaleModCli' $umt
 
 	Write-Host 'Deploying mod files...'
 	foreach ($e in $m.deploy.PSObject.Properties) {
