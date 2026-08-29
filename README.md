@@ -7,7 +7,7 @@
 
 The culmination of a full month of work from a talented niche of the *DELTARUNE* fanbase, **DELTANYON** is a full soundtrack replacement for [Toby Fox's magnum opus](https://deltarune.com). This mod replaces every track in the OST (and many unlisted tracks) with community-made covers featuring the greatest bird of all time.
 
-**Please see [CREDITS.md](https://github.com/MSLaFaver/DELTANYON/blob/main/CREDITS.md) for the full list of Kawkaw covers and creators!** This mod features toasts in the upper right corner with the OST title and the cover creator when you hear a new track. See below for an example!
+**Please see [CREDITS.md](https://github.com/MSLaFaver/DELTANYON/blob/main/CREDITS.md) for the full list of Kawkaw covers and creators!** The mod also features toasts in the upper right corner with the OST title and the cover creator when you hear a new track. See below for an example!
 
 <p align="center">
   <img src="./Toast.png" width=60%>
