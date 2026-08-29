@@ -33,9 +33,18 @@ function nyon_find_entry(arg0)
 			{
 				return _entry;
 			}
-			if (ds_map_exists(_entry, "alt") && ds_map_find_value(_entry, "alt") == arg0)
+			if (ds_map_exists(_entry, "alt"))
 			{
-				return _entry;
+				var _alt = ds_map_find_value(_entry, "alt");
+				var j = 0;
+				while (j < ds_list_size(_alt))
+				{
+					if (ds_list_find_value(_alt, j) == arg0)
+					{
+						return _entry;
+					}
+					j++;
+				}
 			}
 		}
 		i++;

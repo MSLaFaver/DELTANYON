@@ -38,7 +38,7 @@ $MaxEnvVarLength = 32767
 
 $BannerLine = '========================================='
 $Version = 'v0.0.1'
-$Tagline = 'Proprietary installer for DELTANYON.'
+$Tagline = 'Proprietary installer for DELTANYON'
 
 $FunctionDir = Join-Path $Root 'Function'
 foreach ($f in @(

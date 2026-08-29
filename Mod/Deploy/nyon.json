@@ -852,7 +852,9 @@
 	},
 	{
 		"filename": "rhythm_knockdown_combined.ogg",
-		"alt": "rhythm_knockdown_no_guit.ogg",
+		"alt": [
+			"rhythm_knockdown_no_guit.ogg"
+		],
 		"nyonmaker": "ueleule",
 		"title": "Knock You Down!! (Rhythm Ver.)"
 	},
@@ -925,11 +927,11 @@
 		"title": "Concert for you"
 	},
 	{
-		"filename": "snd_pink_stretch_2_fixed.ogg",
-		"nyonmaker": "WavePlasma"
-	},
-	{
-		"filename": "snd_pink_stretch_2_troubled.ogg",
+		"filename": "snd_pink_stretch_2.ogg",
+		"alt": [
+			"snd_pink_stretch_2_troubled.ogg",
+			"snd_pink_stretch_2_fixed.ogg"
+		],
 		"nyonmaker": "WavePlasma"
 	},
 	{
