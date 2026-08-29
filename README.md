@@ -26,10 +26,11 @@ Each and every creator, along with their YouTube channel and individual video li
 4. Extract this `.zip` file the same way as the last.
 5. View the extracted files and navigate to the `Installer` folder.
 6. Right-click in the `Installer` folder and select `Open in Terminal`.
-7. Type in `powershell .\Install-Mods.ps1` and press enter.
-8. The script will try to detect your installation of *DELTARUNE*. Enter `Y` to use the Steam default install location. If it fails, you will need to find `DELTARUNE.exe` and supply it to a file picker.
-9. The script will then ask for the location of *UndertaleModCli*. Navigate to the folder you extracted in Step 2.
-10. Done! The installer will create backups of your *DELTARUNE* game files and install *DELTANYON*.
+   * On Windows 10, you may need to right-click on `Install-Mods.ps1` and select `Copy as path`. Then open Windows PowerShell and enter `cd` followed by a space and the path you copied, *removing `Install-Mods.ps1` from the end*.
+8. Type in `powershell .\Install-Mods.ps1` and press enter.
+9. The script will try to detect your installation of *DELTARUNE*. Enter `Y` to use the Steam default install location. If it fails, you will need to find `DELTARUNE.exe` and supply it to a file picker.
+10. The script will then ask for the location of *UndertaleModCli*. Navigate to the folder you extracted in Step 2.
+11. Done! The installer will create backups of your *DELTARUNE* game files and install *DELTANYON*.
 
 ### How to uninstall
 If you want to revert to a vanilla *DELTARUNE* installation, you can either choose to delete your install folder or use Steam to uninstall the game, or you can:
