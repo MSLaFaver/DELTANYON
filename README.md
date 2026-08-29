@@ -17,7 +17,7 @@ The culmination of a full month of work from a talented niche of the *DELTARUNE*
 	<img src="./Toast-Shop.png" width="60%">
 <p/>
 
-Each and every creator, along with their YouTube channel links and individual video links, are provided in **[CREDITS.md](https://github.com/MSLaFaver/DELTANYON/blob/main/CREDITS.md)**. You can also view [`nyon.json`](https://github.com/MSLaFaver/DELTANYON/blob/main/Mod/Deploy/nyon.json) to check the mapping for each specific file. We've attempted to give as much credit as possible in this project to be appropriately transformative. If you are a creator whose cover was used in this mod and do not wish to remain included, please [open a GitHub issue](https://github.com/MSLaFaver/DELTANYON/issues/new) or send an email to [michael@returntogilead.com](mailto:michael@returntogilead.com).
+Each and every creator, along with their YouTube channel and individual video links, are provided in **[CREDITS.md](https://github.com/MSLaFaver/DELTANYON/blob/main/CREDITS.md)**. You can also view [`nyon.json`](https://github.com/MSLaFaver/DELTANYON/blob/main/Mod/Deploy/nyon.json) to check the mapping for each specific file. We've attempted to give as much credit as possible in this project to be appropriately transformative. If you are a creator whose cover was used in this mod and do not wish to remain included, please [open a GitHub issue](https://github.com/MSLaFaver/DELTANYON/issues/new) or send an email to [michael@returntogilead.com](mailto:michael@returntogilead.com).
 
 ## Installation Instructions
 1. Download the latest version of the *UndertaleModCli* (`UTMT_CLI_v*-Windows.zip`) from https://github.com/UnderminersTeam/UndertaleModTool/releases/latest.
